@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RoomNoteApp</string>
+    <string name="notes_not_found">"There are no notes found"</string>
+    <string name="save_button_text">Save</string>
+    <string name="title_placeholder">Enter title</string>
+    <string name="description_placeholder">Enter description</string>
+</resources>
