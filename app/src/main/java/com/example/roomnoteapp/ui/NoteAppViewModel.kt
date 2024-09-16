@@ -30,7 +30,6 @@ class NoteAppViewModel(private val noteRepository: NoteRepository) : ViewModel()
         )
 
 
-
     private val _noteState = MutableStateFlow(NoteUiState())
     val noteState: StateFlow<NoteUiState> = _noteState.asStateFlow()
 
@@ -43,7 +42,7 @@ class NoteAppViewModel(private val noteRepository: NoteRepository) : ViewModel()
         _noteState.value = note
     }
 
-     fun toNote(): Note {
+    private fun toNote(): Note {
         return Note(
             id = 0,
             title = noteState.value.title,
@@ -51,7 +50,7 @@ class NoteAppViewModel(private val noteRepository: NoteRepository) : ViewModel()
         )
     }
 
-     fun convertNoteToNoteUiState(note: NoteUiState): Note {
+    private fun convertNoteToNoteUiState(note: NoteUiState): Note {
         return Note(
             id = note.id,
             title = note.title,
@@ -59,13 +58,6 @@ class NoteAppViewModel(private val noteRepository: NoteRepository) : ViewModel()
         )
     }
 
-    fun toNoteUiState(note: Note): NoteUiState {
-        return NoteUiState(
-            id = note.id,
-            title = note.title,
-            description = note.description
-        )
-    }
 
     fun createNote() {
         viewModelScope.launch {
